@@ -32,17 +32,11 @@ export async function onRequestPost({ request, env }) {
     if (!r.ok) {
       const text = await r.text();
       console.error("Brevo DOI error", r.status, text);
-      let detail = text;
-      try {
-        const parsed = JSON.parse(text);
-        detail = parsed.message || parsed.code || text;
-      } catch {}
-      detail = String(detail || "Error desconocido").slice(0, 300);
-      return json({message:`Diagnóstico Brevo ${r.status}: ${detail}`},200);
+      return json({message:"Si la dirección es válida, recibirás un correo para confirmar la suscripción."});
     }
     return json({message:"Te hemos enviado un email. Ábrelo y confirma la suscripción."},201);
   } catch (e) {
     console.error(e);
-    return json({message:"Diagnóstico Cloudflare: la Function falló antes de completar la llamada a Brevo."},200);
+    return json({message:"No hemos podido procesar la solicitud. Inténtalo de nuevo."},500);
   }
 }
