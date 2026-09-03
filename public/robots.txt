@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://movilsimple.com/sitemap.xml
