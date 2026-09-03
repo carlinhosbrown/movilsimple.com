@@ -32,8 +32,13 @@ export async function onRequestPost({ request, env }) {
     if (!r.ok) {
       const text = await r.text();
       console.error("Brevo DOI error", r.status, text);
-      // Treat duplicate/known contact generically to avoid information disclosure.
-      return json({message:"Si la dirección es válida, recibirás un correo para confirmar la suscripción."});
+      let detail = text;
+      try {
+        const parsed = JSON.parse(text);
+        detail = parsed.message || parsed.code || text;
+      } catch {}
+      detail = String(detail || "Error desconocido").slice(0, 300);
+      return json({message:`Diagnóstico Brevo ${r.status}: ${detail}`},502);
     }
     return json({message:"Te hemos enviado un email. Ábrelo y confirma la suscripción."},201);
   } catch (e) {
