@@ -7,7 +7,7 @@ const validEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) && v.length <= 25
 export async function onRequestPost({ request, env }) {
   try {
     const body = await request.json();
-    if (body.website) return json({message:"Solicitud recibida."}); // honeypot
+    if (body.website) return json({message:"Solicitud recibida."});
     const email = String(body.email || "").trim().toLowerCase();
     const source = body.source === "beta" ? "beta" : "newsletter";
     if (!validEmail(email)) return json({message:"Introduce un correo electrónico válido."},400);
@@ -38,11 +38,11 @@ export async function onRequestPost({ request, env }) {
         detail = parsed.message || parsed.code || text;
       } catch {}
       detail = String(detail || "Error desconocido").slice(0, 300);
-      return json({message:`Diagnóstico Brevo ${r.status}: ${detail}`},502);
+      return json({message:`Diagnóstico Brevo ${r.status}: ${detail}`},200);
     }
     return json({message:"Te hemos enviado un email. Ábrelo y confirma la suscripción."},201);
   } catch (e) {
     console.error(e);
-    return json({message:"No hemos podido procesar la solicitud. Inténtalo de nuevo."},500);
+    return json({message:"Diagnóstico Cloudflare: la Function falló antes de completar la llamada a Brevo."},200);
   }
 }
