@@ -76,3 +76,37 @@ if (contact) {
     } finally { button.disabled = false; }
   });
 }
+
+// SEO fase 1: identidad de la organización para ayudar a buscadores a entender MovilSimple.
+if (location.pathname === "/" || location.pathname === "/index.html") {
+  const organization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MovilSimple",
+    "url": "https://movilsimple.com/",
+    "logo": "https://movilsimple.com/assets/movilsimple-logo.png",
+    "email": "hola@movilsimple.com",
+    "description": "MovilSimple desarrolla una interfaz Android más clara, sencilla y predecible, con una zona familiar protegida para la configuración del dispositivo."
+  };
+  const schema = document.createElement("script");
+  schema.type = "application/ld+json";
+  schema.textContent = JSON.stringify(organization);
+  document.head.appendChild(schema);
+
+  // Enlaces internos discretos para que las nuevas páginas SEO formen parte de la navegación del sitio.
+  const footerLinks = document.querySelector(".footerlinks");
+  if (footerLinks) {
+    [
+      ["/movil-para-mayores/", "Móvil para mayores"],
+      ["/android-para-mayores/", "Android sencillo"],
+      ["/guias/", "Guías"]
+    ].forEach(([href, label]) => {
+      if (!footerLinks.querySelector(`a[href="${href}"]`)) {
+        const a = document.createElement("a");
+        a.href = href;
+        a.textContent = label;
+        footerLinks.prepend(a);
+      }
+    });
+  }
+}
