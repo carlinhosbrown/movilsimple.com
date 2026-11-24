@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="MovilSimple simplifica Android para mayores y familias con botones grandes, solo las apps necesarias y un modo familiar protegido para configurar el dispositivo.">
+<meta name="description" content="MovilSimple convierte un Android normal en un móvil sencillo para mayores: botones grandes, solo las apps necesarias y un modo familiar con PIN. Gratis. Gestión a distancia opcional para la familia.">
 <meta name="robots" content="index,follow">
 <title>MovilSimple — Android sencillo para mayores y familias</title>
 <meta name="theme-color" content="#ffffff">
@@ -13,267 +13,26 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MovilSimple — Android sencillo para mayores y familias">
-<meta property="og:description" content="Una forma más clara, sencilla y segura de usar Android, con una zona familiar protegida para la configuración.">
+<meta property="og:description" content="Un Android claro y predecible para mayores, con una zona familiar protegida. Gratis, y con gestión a distancia opcional.">
 <meta property="og:url" content="https://movilsimple.com/">
 <meta property="og:image" content="https://movilsimple.com/assets/og-movilsimple.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MovilSimple — Android sencillo para mayores y familias">
-<meta name="twitter:description" content="Una forma más clara, sencilla y segura de usar Android.">
+<meta name="twitter:description" content="Un Android claro y predecible para mayores, con una zona familiar protegida.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MovilSimple","url":"https://movilsimple.com/","logo":"https://movilsimple.com/assets/movilsimple-logo.png","email":"hola@movilsimple.com","description":"MovilSimple desarrolla una interfaz Android más clara, sencilla y predecible, con una zona familiar protegida para configurar el dispositivo."}</script>
-<style>
-:root{
-  --blue:#5f97cf;
-  --blue2:#397fbd;
-  --ink:#202428;
-  --muted:#6d747b;
-  --line:#e9edf1;
-  --soft:#f7f9fb;
-  --mint:#92d8c3;
-  --sky:#8fc7eb;
-  --teal:#76c8cc;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--ink);
-  background:#fff;
-  -webkit-font-smoothing:antialiased;
-}
-a{text-decoration:none;color:inherit}
-.container{width:min(1180px,calc(100% - 40px));margin:auto}
-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,255,255,.84);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(233,237,241,.85);
-}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.wordmark{font-weight:850;font-size:21px;letter-spacing:-.03em}
-.wordmark .m{color:var(--blue)}
-.navlinks{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:650;color:#596067}
-.navlinks a:hover{color:var(--blue2)}
-.navcta{
-  padding:11px 15px;border-radius:12px;background:var(--ink);color:#fff!important;
-}
-.hero{
-  padding:92px 0 54px;
-  background:
-    radial-gradient(circle at 75% 15%,rgba(143,199,235,.18),transparent 33%),
-    radial-gradient(circle at 18% 30%,rgba(146,216,195,.12),transparent 30%);
-}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
-.eyebrow{
-  display:inline-flex;gap:9px;align-items:center;
-  color:#4b718f;font-weight:750;font-size:14px;
-}
-.eyebrow:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--mint)}
-h1{
-  font-size:clamp(54px,7vw,86px);
-  line-height:.98;letter-spacing:-.055em;
-  margin:20px 0 26px;
-  max-width:820px;
-}
-h1 .blue{color:var(--blue2)}
-.lead{
-  font-size:21px;line-height:1.55;color:var(--muted);
-  max-width:680px;margin:0 0 30px;
-}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  border-radius:14px;padding:14px 19px;font-weight:800;font-size:15px;
-  transition:.2s ease;
-}
-.btn:hover{transform:translateY(-1px)}
-.btn-dark{background:var(--ink);color:#fff}
-.btn-light{background:#f0f4f7;color:#3e4b55}
-.hero-note{margin-top:24px;color:#7a838b;font-size:14px}
-.mock-shell{
-  position:relative;min-height:590px;display:grid;place-items:center;
-}
-.glow{
-  position:absolute;width:520px;height:520px;border-radius:50%;
-  background:radial-gradient(circle,rgba(95,151,207,.17),rgba(95,151,207,0) 66%);
-}
-.phone{
-  position:relative;
-  width:min(380px,90%);
-  background:#fafcfd;
-  border:10px solid #517da5;
-  border-radius:42px;
-  padding:30px 22px 24px;
-  box-shadow:0 30px 70px rgba(45,76,104,.18);
-}
-.speaker{width:56px;height:7px;background:#8ba1b3;border-radius:999px;margin:0 auto 26px}
-.time{text-align:center;font-weight:900;font-size:38px;letter-spacing:-.04em}
-.date{text-align:center;color:#77828b;font-weight:600;margin:5px 0 22px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.tile{
-  min-height:128px;border-radius:24px;padding:18px;
-  display:flex;flex-direction:column;justify-content:space-between;
-  color:#365064;font-weight:850;font-size:18px
-}
-.t1{background:#dff3eb}.t2{background:#e2f0fa}.t3{background:#edf1f4}.t4{background:#dff1f2}
-.sq{
-  width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.75);
-  display:grid;place-items:center;font-size:22px
-}
-.familybar{
-  margin-top:15px;border:1px solid var(--line);background:#fff;border-radius:16px;
-  padding:12px 14px;display:flex;justify-content:space-between;align-items:center;
-  font-size:13px;font-weight:750;color:#6d7780
-}
-.floating{
-  position:absolute;right:-6px;bottom:55px;
-  width:210px;background:#fff;border:1px solid var(--line);
-  border-radius:18px;padding:15px 16px;
-  box-shadow:0 18px 45px rgba(45,76,104,.12);
-}
-.floating strong{display:block;font-size:14px}
-.floating span{display:block;color:#7b858d;font-size:12px;margin-top:4px;line-height:1.4}
-.section{padding:110px 0}
-.section.gray{background:var(--soft)}
-.kicker{color:var(--blue2);font-size:13px;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
-.section h2{
-  font-size:clamp(38px,5vw,62px);
-  line-height:1.05;letter-spacing:-.045em;margin:12px 0 18px;
-}
-.section-intro{font-size:19px;color:var(--muted);max-width:760px}
-.three{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:58px
-}
-.feature-number{font-size:13px;font-weight:850;color:#9aa4ac;margin-bottom:18px}
-.feature h3{font-size:22px;margin:0 0 10px;letter-spacing:-.02em}
-.feature p{margin:0;color:var(--muted);line-height:1.65}
-.family-section{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.panel{
-  background:#fff;border:1px solid var(--line);border-radius:28px;
-  padding:26px;box-shadow:0 16px 45px rgba(43,69,93,.07)
-}
-.panel-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid var(--line)}
-.panel-title strong{display:block;font-size:18px}.panel-title span{color:var(--muted);font-size:13px}
-.pin{background:#e7f5ee;color:#1c7d59;padding:8px 11px;border-radius:999px;font-size:12px;font-weight:850}
-.panel-list{display:grid;gap:12px;margin-top:18px}
-.row{display:flex;gap:14px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:16px}
-.badge{width:38px;height:38px;border-radius:12px;background:#eef5fa;display:grid;place-items:center;color:var(--blue2);font-weight:900}
-.row strong{display:block;font-size:14px}.row span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-.checks{display:grid;gap:15px;margin-top:28px}
-.check{display:flex;gap:12px;align-items:flex-start}
-.check i{font-style:normal;width:24px;height:24px;border-radius:50%;background:#e6f4ed;color:#1f7f5c;display:grid;place-items:center;font-weight:900;flex:none}
-.check span{color:#5f6870;line-height:1.55}
-.statement{
-  padding:120px 0;
-  text-align:center;
-  background:#111417;color:#fff;
-}
-.statement p{
-  max-width:900px;margin:0 auto;
-  font-size:clamp(36px,5vw,64px);
-  line-height:1.08;letter-spacing:-.045em;font-weight:800
-}
-.statement em{font-style:normal;color:#86b6df}
-.beta{
-  padding:110px 0;background:
-    linear-gradient(180deg,#fff,#f8fbfd);
-}
-.beta-card{
-  border:1px solid var(--line);border-radius:32px;
-  padding:54px;background:#fff;
-  box-shadow:0 18px 55px rgba(42,72,97,.07);
-  display:grid;grid-template-columns:1fr .9fr;gap:50px;align-items:center
-}
-.beta h2{font-size:46px;margin:0 0 14px;letter-spacing:-.04em}
-.beta p{color:var(--muted);font-size:18px;margin:0}
-.form{display:flex;gap:10px}
-.form input{
-  min-width:0;flex:1;border:1px solid #dfe5ea;border-radius:13px;padding:14px 15px;outline:none
-}
-.form input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(95,151,207,.11)}
-.form button{border:0;cursor:pointer}
-.status{font-size:13px;color:#5f6b74;margin-top:9px}
-footer{border-top:1px solid var(--line);padding:34px 0}
-.footer{display:flex;justify-content:space-between;gap:30px;color:#7a838b;font-size:13px}
-.footerlinks{display:flex;gap:18px;flex-wrap:wrap}
-
-.newsletter-block{
-  display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center
-}
-.newsletter-points{
-  display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;
-  margin-top:28px;color:#56616a;font-size:15px;font-weight:650
-}
-.newsletter-card{
-  border:1px solid var(--line);border-radius:28px;padding:32px;
-  background:linear-gradient(180deg,#fbfdff,#f4f8fb);
-  box-shadow:0 16px 45px rgba(43,69,93,.07)
-}
-.newsletter-badge{
-  display:inline-flex;padding:7px 10px;border-radius:999px;
-  background:#eaf4fb;color:var(--blue2);font-size:12px;font-weight:850;
-  letter-spacing:.04em;text-transform:uppercase
-}
-.newsletter-card h3{
-  font-size:30px;line-height:1.08;letter-spacing:-.035em;
-  margin:18px 0 12px
-}
-.newsletter-card p{color:var(--muted);margin:0 0 22px}
-.newsletter-form{display:flex;gap:10px}
-.newsletter-form input{
-  min-width:0;flex:1;border:1px solid #dfe5ea;border-radius:13px;
-  padding:14px 15px;outline:none
-}
-.newsletter-form input:focus{
-  border-color:var(--blue);box-shadow:0 0 0 4px rgba(95,151,207,.11)
-}
-.newsletter-form button{border:0;cursor:pointer}
-.newsletter-status{font-size:13px;color:#5f6b74;margin-top:10px}
-.newsletter-privacy{font-size:12px;color:#8a939b;margin-top:12px}
-
-.form-consent{
-  display:flex;gap:8px;align-items:flex-start;margin-top:11px;
-  color:#77818a;font-size:12px;line-height:1.45
-}
-.form-consent input{margin-top:2px;flex:none}
-.form-consent a{text-decoration:underline}
-.status.ok,.newsletter-status.ok{color:#1c7d59}
-.status.error,.newsletter-status.error{color:#ad3b3b}
-.honeypot{
-  position:absolute!important;left:-10000px!important;width:1px!important;
-  height:1px!important;overflow:hidden!important
-}
-button:disabled{opacity:.65;cursor:wait;transform:none!important}
-
-@media (max-width:900px){
-  .navlinks a:not(.navcta){display:none}
-  .hero-grid,.family-section,.beta-card,.newsletter-block{grid-template-columns:1fr}
-  .hero{padding-top:64px}
-  .three{grid-template-columns:1fr;gap:34px}
-  .newsletter-points{grid-template-columns:1fr}
-  .mock-shell{min-height:530px}
-}
-@media(max-width:620px){
-  .container{width:min(100% - 26px,1180px)}
-  h1{font-size:50px}
-  .lead{font-size:18px}
-  .section{padding:78px 0}
-  .form,.newsletter-form{flex-direction:column}
-  .beta-card{padding:30px 22px}
-  .footer{flex-direction:column}
-}
-</style>
+<link rel="stylesheet" href="/assets/sitio.css?v=2">
 </head>
 <body>
 <header>
   <div class="container nav">
-    <a class="wordmark" href="#"><span class="m">Movil</span>Simple</a>
+    <a class="wordmark" href="/"><span class="m">Movil</span>Simple</a>
     <nav class="navlinks">
       <a href="#producto">Producto</a>
       <a href="#familia">Familia</a>
+      <a href="#precios">Precios</a>
       <a href="/guias/">Guías</a>
-      <a href="#newsletter">Newsletter</a>
-      <a href="/contacto.html">Contacto</a>
+      <a href="/descargar/">Descargar</a>
+      <a href="/familias/">Acceso familias</a>
       <a class="navcta" href="#beta">Probar la beta</a>
     </nav>
   </div>
@@ -287,10 +46,10 @@ button:disabled{opacity:.65;cursor:wait;transform:none!important}
       <h1>Tu móvil.<br><span class="blue">Sin complicaciones.</span></h1>
       <p class="lead">MovilSimple convierte un Android normal en una experiencia clara y predecible: botones grandes, solo las aplicaciones necesarias y una zona familiar protegida para configurarlo.</p>
       <div class="actions">
-        <a class="btn btn-dark" href="#newsletter">Seguir el proyecto</a>
-        <a class="btn btn-light" href="#producto">Cómo funciona</a>
+        <a class="btn btn-dark" href="/descargar/">Descargar gratis</a>
+        <a class="btn btn-light" href="#empezar">Cómo se instala</a>
       </div>
-      <div class="hero-note">Pensado para móvil y tablet · Proyecto en desarrollo</div>
+      <div class="hero-note">Gratis en el móvil · Pensado para Xiaomi y Samsung · Proyecto en desarrollo</div>
     </div>
 
     <div class="mock-shell">
@@ -321,7 +80,7 @@ button:disabled{opacity:.65;cursor:wait;transform:none!important}
       <div class="feature">
         <div class="feature-number">01</div>
         <h3>Solo lo necesario</h3>
-        <p>La pantalla principal muestra únicamente las aplicaciones y accesos que se hayan elegido. Sin cajones, widgets ni opciones que distraigan.</p>
+        <p>Teléfono, WhatsApp, fotos, cámara, mapas y calendario. Solo aparece lo que la familia elija. Sin cajones, widgets ni opciones que distraigan.</p>
       </div>
       <div class="feature">
         <div class="feature-number">02</div>
@@ -330,8 +89,8 @@ button:disabled{opacity:.65;cursor:wait;transform:none!important}
       </div>
       <div class="feature">
         <div class="feature-number">03</div>
-        <h3>Siempre predecible</h3>
-        <p>La interfaz mantiene una estructura estable. El objetivo es que abrir el teléfono, llamar, ver fotos o comunicarse requiera muy pocas decisiones.</p>
+        <h3>Menos engaños</h3>
+        <p>Sin app de SMS, el canal favorito de las estafas. Las llamadas de números desconocidos pueden ir a un familiar en lugar de a la persona mayor.</p>
       </div>
     </div>
   </div>
@@ -342,12 +101,12 @@ button:disabled{opacity:.65;cursor:wait;transform:none!important}
     <div>
       <div class="kicker">Modo familia</div>
       <h2>La parte complicada queda detrás de un PIN.</h2>
-      <p class="section-intro">La persona utiliza el dispositivo. La familia, cuidador o administrador se ocupa de configurarlo.</p>
+      <p class="section-intro">La persona utiliza el dispositivo. La familia, cuidador o administrador se ocupa de configurarlo, desde el propio móvil y sin registrarse en ningún sitio.</p>
       <div class="checks">
         <div class="check"><i>✓</i><span>Elegir qué aplicaciones aparecen en la pantalla principal.</span></div>
         <div class="check"><i>✓</i><span>Gestionar contactos favoritos y accesos rápidos.</span></div>
         <div class="check"><i>✓</i><span>Instalar o retirar aplicaciones desde una zona protegida.</span></div>
-        <div class="check"><i>✓</i><span>Reducir cambios accidentales y exposición a contenido no deseado.</span></div>
+        <div class="check"><i>✓</i><span>Elegir a qué familiar se desvían las llamadas de desconocidos.</span></div>
       </div>
     </div>
     <div class="panel">
@@ -358,8 +117,73 @@ button:disabled{opacity:.65;cursor:wait;transform:none!important}
       <div class="panel-list">
         <div class="row"><div class="badge">A</div><div><strong>Aplicaciones visibles</strong><span>Teléfono · WhatsApp · Galería</span></div></div>
         <div class="row"><div class="badge">C</div><div><strong>Contactos favoritos</strong><span>Familia y contactos habituales</span></div></div>
-        <div class="row"><div class="badge">+</div><div><strong>Instalar aplicaciones</strong><span>Solo desde el modo familiar</span></div></div>
+        <div class="row"><div class="badge">☎</div><div><strong>Llamadas desconocidas</strong><span>Se desvían a Laura (hija)</span></div></div>
         <div class="row"><div class="badge">S</div><div><strong>Seguridad</strong><span>Controles y restricciones</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="empezar">
+  <div class="container">
+    <div class="kicker">Cómo se empieza</div>
+    <h2>Se prepara una vez.<br>Después, a usarlo.</h2>
+    <p class="section-intro">La instalación la hace un familiar en unos 15 minutos. MovilSimple se instala como propietario del móvil para que nadie pueda salir de él por error.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Restablece el móvil</h3>
+        <p>Haz copia de fotos y WhatsApp y restablece el móvil de fábrica. Es la única forma de que MovilSimple quede bien protegido.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Escanea el código</h3>
+        <p>En la pantalla de bienvenida, toca seis veces el mismo punto y escanea el código QR de la página de descarga.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Elige apps y PIN</h3>
+        <p>Inicia sesión con la cuenta de Google de la persona mayor, elige sus apps y contactos y pon tu PIN familiar.</p>
+      </div>
+    </div>
+    <div class="actions" style="margin-top:44px">
+      <a class="btn btn-dark" href="/descargar/">Ver la guía de instalación</a>
+    </div>
+  </div>
+</section>
+
+<section class="section gray" id="precios">
+  <div class="container">
+    <div class="kicker">Precios</div>
+    <h2>Gratis en el móvil.<br>A distancia, si lo necesitas.</h2>
+    <p class="section-intro">Todo lo que se configura desde el propio móvil es gratis y funciona sin servidores ni cuentas nuevas. Si quieres ayudar desde lejos, la gestión a distancia es una suscripción.</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">MovilSimple</div>
+        <div class="plan-price">Gratis</div>
+        <p class="plan-desc">Para la familia que está cerca y configura el móvil en mano.</p>
+        <ul class="plan-list">
+          <li>Pantalla sencilla con botones grandes</li>
+          <li>Modo familiar con PIN en el móvil</li>
+          <li>Apps y contactos a elegir</li>
+          <li>Desvío de llamadas desconocidas</li>
+          <li>Sin registro ni datos en nuestros servidores</li>
+        </ul>
+        <a class="btn btn-light" href="/descargar/">Descargar</a>
+      </div>
+      <div class="plan plan-main">
+        <div class="plan-name">MovilSimple Familia</div>
+        <div class="plan-price">9 €<span class="plan-per">/mes</span></div>
+        <p class="plan-desc">O 79 € al año para el primer móvil. Cada móvil más, 49 € al año. Se activa sin borrar el móvil. Disponible próximamente.</p>
+        <ul class="plan-list">
+          <li>Todo lo del plan gratis</li>
+          <li>Panel web y app para la familia</li>
+          <li>Cambiar apps y contactos a distancia</li>
+          <li>Citas médicas en su calendario</li>
+          <li>Ubicación cuando la pidas y botón SOS</li>
+          <li>Varios familiares gestionando el mismo móvil</li>
+        </ul>
+        <a class="btn btn-dark" href="#beta">Avisadme cuando salga</a>
       </div>
     </div>
   </div>
@@ -410,7 +234,7 @@ button:disabled{opacity:.65;cursor:wait;transform:none!important}
       <div>
         <div class="kicker">Programa de pruebas</div>
         <h2>¿Quieres probar MovilSimple?</h2>
-        <p>Déjanos tu email si quieres que te avisemos cuando abramos plazas para probar las primeras versiones.</p>
+        <p>Déjanos tu email si quieres que te avisemos cuando abramos plazas para probar las primeras versiones. Buscamos familias con un Xiaomi o Samsung que puedan restablecer.</p>
       </div>
       <div>
         <form class="form" data-subscribe data-source="beta">
@@ -434,7 +258,8 @@ button:disabled{opacity:.65;cursor:wait;transform:none!important}
       <a href="/movil-para-mayores/">Móvil para mayores</a>
       <a href="/android-para-mayores/">Android sencillo</a>
       <a href="/guias/">Guías</a>
-      <a href="#newsletter">Newsletter</a>
+      <a href="/descargar/">Descargar</a>
+      <a href="/familias/">Acceso familias</a>
       <a href="/contacto.html">Contacto</a>
       <a href="/privacidad.html">Privacidad</a>
       <a href="/aviso-legal.html">Aviso legal</a>
